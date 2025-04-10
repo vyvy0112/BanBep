@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Bán Bếp</title>
+    <!-- Bootstrap 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap 5 JS Bundle (bao gồm cả Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- tạo icon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* Responsive cho màn hình nhỏ */
+@media screen and (max-width: 768px) {
+    #nav .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu {
+        width: 100%;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .search-bar form {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+/* Responsive cho màn hình nhỏ */
+
+
+    #nav {
+        background-color: #8B0000; /* đỏ đô */
+        padding: 10px 0;
+    }
+
+    #nav .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 5px;
+    }
+
+    #nav .logo img {
+        height: 40px;
+    }
+
+    #nav .menu {
+        flex: 1;
+        display: flex;
+        justify-content: center; /* căn giữa menu */
+    }
+
+    #nav ul {
+        list-style: none;
+        margin: 10px;
+        padding: 0;
+        display: flex;
+        gap: 20px;
+    }
+
+    #nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+   
+    #nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 20px; /* tăng padding cho đều và to */
+    font-size: 1.10rem; /* cỡ chữ tương đương h5-h4 */
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+      /* Dropdown styles */
+      .dropdown {
+        position: relative;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color:  #8B0000;
+        min-width: 180px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        border-radius: 4px;
+    }
+
+    .dropdown-content a {
+        color: #8B0000;
+        padding: 10px 15px;
+        display: block;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .dropdown-content a:hover {
+    background-color: #B22222; /* đỏ tươi hơn */
+    color: #fff; /* trắng cho dễ đọc */
+}
+
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown > a {
+        position: relative;
+        cursor: pointer;
+    }
+    
+    .icon_drop_new::before {
+    content: "▼"; /* hoặc dùng ▾ nếu muốn mềm hơn */
+    font-size: 0.6rem;
+    display: inline-block;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+/* Hiệu ứng xoay khi hover dropdown */
+.dropdown:hover .icon_drop_new::before {
+    transform: rotate(100deg);
+}
+
+
+/* thanh tìm kiếm */
+.search-bar form {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    background-color: white;
+    height: 36px;
+    max-width: 300px;
+    border-radius: 20px;
+    overflow: hidden; /* cắt viền nút đúng */
+}
+
+.search-bar input[type="text"] {
+    border: none;
+    padding: 8px 10px;
+    outline: none;
+    font-size: 14px;
+    flex: 1;
+    border-radius: 0; /* không cần bo nếu đã bo ngoài form */
+}
+
+.search-bar button {
+    padding: 8px 10px;
+    background-color: #8B0000;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0; /* để đồng nhất */
+    height: 100%;
+}
+
+#nav .dropdown {
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Màu chữ trắng cho link trong dropdown */
+#nav .dropdown-content a {
+    color: white;
+}
+#nav ul li a:hover {
+    color: #FFD700; /* màu vàng hoặc chọn màu khác bạn muốn */
+    background-color: transparent; /* giữ nền trong suốt hoặc đổi tùy ý */
+}
+
+
+/* footer */
+.footer {
+    background-color: #222;
+    color: #f1f1f1;
+    padding: 40px 20px 20px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    gap: 30px;
+}
+
+.footer-left,
+.footer-right {
+    flex: 1 1 300px;
+}
+
+.footer-left h3,
+.footer-right h4 {
+    color: #FFD700;
+    margin-bottom: 15px;
+}
+
+.footer-right ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-right ul li {
+    margin-bottom: 8px;
+}
+
+.footer-right ul li a {
+    color: #f1f1f1;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-right ul li a:hover {
+    color: #FFD700;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #444;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.footer-bottom p:first-child {
+    font-weight: bold;
+    font-size: 16px;
+    color: #FFD700;
+    margin-bottom: 10px;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-left,
+    .footer-right {
+        width: 100%;
+    }
+
+    .footer-bottom {
+        text-align: left;
+    }
+}
+
+
+.footer-left,
+.footer-right {
+    flex: 1 1 300px;
+    text-align: center;
+}
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px; /* ✅ tăng chiều rộng tại đây */
+    height: 400px;     /* ✅ tăng chiều cao tùy ảnh (đảm bảo tỷ lệ) */
+    margin: 30px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+}
+
+.carousel-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* Nút điều hướng */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    font-size: 30px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+
+
+</style>
+
+<body>
+  
+<header>
+    <div id="nav">
+        <div class="container">
+            <!-- Logo bên trái -->
+            <div class="logo">
+                <a href="trangchu.index">
+                    <img src="" alt="Logo" />
+                </a>
+            </div>
+
+            <!-- Menu chính giữa -->
+            <div class="menu">
+                <ul>
+                    <li class="dropdown">
+                        <a href="#">Danh mục sản phẩm</a>
+                        <span class="icon_drop_new"></span>
+                        <div class="dropdown-content">
+                            <a href="sanpham/bepgas">Bếp Gas</a>
+                            <a href="sanpham/binhgas">Bình Gas</a>
+                            <a href="sanpham/phukien">Phụ kiện</a>
+                        </div>
+                    </li>
+                    <li><a href="trangchu.index">Home</a></li>
+                    <li><a href="sanpham.index">Sản Phẩm</a></li>
+                    <li><a href="lienhe.index">Liên hệ</a></li>
+                    <div class="search-bar">
+                        <form action="timkiem.index" method="get">
+                            <input type="text" name="q" placeholder="Tìm sản phẩm" />
+                            <button type="submit" title="Tìm kiếm">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <li class="dropdown">
+                        <i class="fas fa-user"></i> Tài Khoản
+                        <div class="dropdown-content">
+                            <a href="taikhoan/dangnhap">Đăng nhập</a>
+                            <a href="taikhoan/dangky">Đăng ký</a>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="giohang.index">
+                            <i class="fas fa-shopping-cart"></i> Giỏ hàng
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+</header>
+<div class="carousel">
+    <div class="carousel-images" id="carouselImages">
+        <img src="hinhanh/hinh1.png" alt="Hình 1">
+        <img src="hinhanh/hinh2.jpg" alt="Hình 2">
+        <img src="hinh3.jpg" alt="Hình 3">
+    </div>
+    <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
+    <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
+</div>
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-left">
+            <h3>Cửa hàng Gas - Bếp Gas Nhật Minh</h3>
+            <p>Địa chỉ: Số 28 Nguyễn Huệ, Ấp 4, Xã Vị Thủy, Huyện Vị Thủy, Hậu Giang</p>
+            <p>Điện thoại: 0907.330.168</p>
+            <p>Email: gasnhatminh@gmail.com</p>
+        </div>
+
+        <div class="footer-right">
+            <h4>Hỗ trợ khách hàng</h4>
+            <ul>
+                <li><a href="lienhe.index">Liên hệ</a></li>
+                <li><a href="taikhoan/dangnhap">Tài khoản</a></li>
+                <p style="color: #B22222;">Hotline: 18006324</p>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>Giới Thiệu</p>
+        <p>Cửa hàng Gas - 
+            Bếp Gas Nhật Minh là địa chỉ uy tín chuyên cung cấp gas, 
+            bếp gas, bình gas và các thiết bị liên quan với chất lượng hàng đầu và dịch vụ tận tâm. 
+            Chúng tôi không chỉ đơn thuần là nơi bán sản phẩm, mà còn là người bạn đồng hành đáng tin cậy của mọi gia đình Việt trong từng bữa cơm ấm cúng. Với phương châm “An toàn là trên hết – Uy tín là nền tảng – Chất lượng làm nên thương hiệu”,
+             Nhật Minh luôn nỗ lực nâng cao dịch vụ, đảm bảo giao hàng nhanh chóng, hỗ trợ kỹ thuật tận nơi và mang đến những giải pháp tiện nghi, tiết kiệm và bền vững. Sự tin tưởng và đồng hành của quý khách hàng chính là động lực lớn nhất để chúng tôi không ngừng phát triển, 
+             đổi mới và phục vụ ngày càng tốt hơn.</p>
+        </p>
+    </div>
+</footer>
+<!-- JavaScript chèn tại đây -->
+<script>
+    const images = document.getElementById("carouselImages");
+    const totalImages = images.children.length;
+    let index = 0;
+
+    function showSlide(i) {
+        index = (i + totalImages) % totalImages;
+        images.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function nextSlide() {
+        showSlide(index + 1);
+    }
+
+    function prevSlide() {
+        showSlide(index - 1);
+    }
+
+    setInterval(nextSlide, 5000);
+</script>
+</body>
+</html>
+
+
+
