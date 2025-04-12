@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ 
+    <style>
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+      
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f5f5f5;
+        }
+      
+        /* Layout chính chứa sidebar và nội dung */
+        .container {
+          display: flex;
+          padding: 20px;
+          gap: 20px;
+        }
+      
+        /* Sidebar trái */
+        .sidebar {
+  width: 220px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #8B0000;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+}
+       
+.sidebar ul li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar ul li:hover {
+  background-color: #f0f0f0;
+  font-weight: bold;
+  color: #8B0000;
+}
+      
+        /* Vùng sản phẩm */
+        .product {
+          flex: 1;
+        }
+      
+        .sanpham-title {
+          text-align: center;
+          margin: 15px auto;
+          padding: 0;
+          color: #8B0000;
+          font-size: 24px;
+          font-weight: bold;
+        }
+      
+        /* Danh sách sản phẩm */
+        .product-list {
+          list-style: none;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          padding: 0;
+        }
+      
+        .product-list li {
+          width: calc(25% - 15px); /* 4 sản phẩm trên 1 hàng */
+        }
+      
+        .product-card {
+          background-color: white;
+          border-radius: 10px;
+          padding: 15px;
+          text-align: center;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+          transition: transform 0.3s ease;
+        }
+      
+        .product-card:hover {
+          transform: translateY(-5px);
+        }
+      
+        .product-card img {
+          width: 100%;
+          height: 180px;
+          object-fit: cover;
+          border-radius: 6px;
+        }
+      
+        .product-card h3 {
+          margin: 10px 0 5px;
+          font-size: 18px;
+          color: #333;
+        }
+      
+        .product-price {
+          color: #d62828;
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+      
+        .product-card p {
+          font-size: 14px;
+          color: #555;
+        }
+      
+        .product-button {
+          display: inline-block;
+          padding: 8px 16px;
+          margin-top: 10px;
+          background-color: #8B0000;
+          color: white;
+          border-radius: 999px;
+          text-decoration: none;
+          transition: background-color 0.3s;
+          font-size: 14px;
+        }
+      
+        .product-button:hover {
+          background-color: #a00000;
+        }
+      
+        /* Responsive */
+        @media (max-width: 1200px) {
+          .product-list li {
+            width: calc(33.333% - 15px);
+          }
+        }
+      
+        @media (max-width: 768px) {
+          .container {
+            flex-direction: column;
+          }
+      
+          .sidebar {
+            width: 100%;
+          }
+      
+          .product-list li {
+            width: calc(50% - 10px);
+          }
+        }
+      
+        @media (max-width: 480px) {
+          .product-list li {
+            width: 100%;
+          }
+        }
+      
+        /* Nút trở về trang chủ (nếu cần) */
+        .back-home {
+          display: inline-block;
+          padding: 10px 20px;
+          background-color: #8B0000;
+          color: white;
+          text-decoration: none;
+          border-radius: 999px;
+          font-weight: bold;
+          margin: 20px auto;
+          transition: background-color 0.3s ease;
+        }
+      
+        .back-home:hover {
+          background-color: #a00000;
+        }
+      </style>
+      
+</head>
+<body>
+    <div id="header-placeholder"></div>  
+
+    <div class="container">
+        <div class="sidebar">
+            <h2>Danh Mục Sản Phẩm</h2>
+            <ul>
+              <li>Bếp gas Teka</li>
+              <li>Bếp gas EUROSUN</li>
+              <li>Bếp gas Lorca</li>
+              <li>Bếp gas Electrolux</li>
+              <li>Bếp gas Rinai</li>
+          </div>
+        
+         
+        <div class="product">
+            <h2 class="sanpham-title">Sản phẩm</h2>
+            <ul class="product-list">
+                <li>
+                  <div class="product-card" data-product-id="1">
+                    <img src="https://via.placeholder.com/250x180" alt="Điện thoại">
+                    <h3>Điện thoại iPhone 15</h3>
+                    <p class="product-price">24,990,000 VND</p>
+                    <p>Màn hình OLED siêu nét, chip A17 Bionic cực mạnh.</p>
+                    <a href="chitietsanpham.html?id=1" class="product-button">Xem chi tiết</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="product-card">
+                    <img src="https://via.placeholder.com/250x180" alt="Laptop">
+                    <h3>Laptop ASUS ROG</h3>
+                    <p class="product-price">36,500,000 VND</p>
+                    <p>Hiệu năng cao, chơi game mượt, màn hình 240Hz.</p>
+                    <a href="chitietsanpham.html?id=2" class="product-button">Xem chi tiết</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="product-card">
+                    <img src="https://via.placeholder.com/250x180" alt="Tai nghe">
+                    <h3>Tai nghe Bluetooth</h3>
+                    <p class="product-price">1,200,000 VND</p>
+                    <p>Âm thanh 3D sống động, chống ồn chủ động.</p>
+                    <a href="#" class="product-button">Xem chi tiết</a>
+                  </div>
+                </li>
+                <li>
+                    <div class="product-card">
+                      <img src="https://via.placeholder.com/250x180" alt="Tai nghe">
+                      <h3>Tai nghe Bluetooth</h3>
+                      <p class="product-price">1,200,000 VND</p>
+                      <p>Âm thanh 3D sống động, chống ồn chủ động.</p>
+                      <a href="#" class="product-button">Xem chi tiết</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="product-card">
+                      <img src="https://via.placeholder.com/250x180" alt="Tai nghe">
+                      <h3>Tai nghe Bluetooth</h3>
+                      <p class="product-price">1,200,000 VND</p>
+                      <p>Âm thanh 3D sống động, chống ồn chủ động.</p>
+                      <a href="#" class="product-button">Xem chi tiết</a>
+                    </div>
+                </li>
+              </ul>
+        </div>
+
+    </div>
+   
+
+
+
+    <div id="footer-placeholder"></div>  
+</body>
+
+<script>
+    fetch('header.html')
+       .then(response => response.text())
+       .then(data => {
+         document.getElementById('header-placeholder').innerHTML = data;
+       });
+   
+       fetch('footer.html')
+       .then(response => response.text())
+       .then(data => {
+         document.getElementById('footer-placeholder').innerHTML = data;
+       });
+   </script>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ 
+</head>
+<style>
+  .register-container {
+      width: 400px; /* Điều chỉnh chiều rộng khung chứa */
+      margin: 50px auto; /* Căn giữa khung theo chiều ngang và tạo khoảng cách */
+      padding: 20px; /* Khoảng cách bên trong khung chứa */
+      background-color: #f8f9fa; /* Màu nền của khung chứa */
+      border: 1px solid #dee2e6; /* Đường viền của khung chứa */
+      border-radius: 8px; /* Bo tròn góc của khung chứa */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng cho khung chứa */
+  }
+
+  .register-form {
+      padding: 30px; /* Khoảng cách bên trong form */
+  }
+
+  .register-header {
+      text-align: center;
+      margin-bottom: 25px;
+      color:#8B0000;
+  }
+
+  .register-header h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+  }
+
+  .register-form .form-group {
+      margin-bottom: 20px;
+  }
+
+  .register-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #495057;
+      display: inline-block; /* Hiển thị các tùy chọn trên cùng một dòng */
+  }
+
+  .register-form .form-control {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 1rem;
+  }
+
+  .register-form .form-control:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+      outline: none;
+  }
+
+  .register-form button.btn-primary {
+      background-color: #007bff;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+  }
+
+  .register-form button.btn-primary:hover {
+      background-color: #0056b3;
+  }
+  .form-group label {
+    display: block; /* Đảm bảo label "Giới tính" vẫn ở dòng riêng */
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group div {
+    display: inline-block; /* Hiển thị các div chứa radio và label trên cùng dòng */
+    margin-right: 15px;
+}
+
+.form-group input[type="radio"] {
+    vertical-align: middle; /* Căn chỉnh dọc nút radio với chữ */
+    margin-right: 5px; /* Tạo khoảng cách giữa nút radio và chữ */
+}
+
+.form-group div label {
+    display: inline; /* Hiển thị label "Nam", "Nữ", "Khác" trên cùng dòng với radio */
+    font-weight: normal; /* Đặt lại độ đậm cho label tùy chọn (tùy chọn) */
+}
+
+
+</style>
+
+<body>
+    <div id="header-placeholder"></div>  
+
+    <div class="register-container">
+      <div class="register-form">
+          <div class="register-header">
+              <h2>Đăng Ký</h2>
+          </div>
+  
+          <form>
+              <div class="form-group">
+                  <label for="name">Họ tên*:</label>
+                  <input type="text" id="name" name="name" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Số điện thoại*:</label>
+                <input type="phone" id="phone" name="phone" class="form-control" required>
+              </div>
+              <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label>Giới tính: </label>
+                <div>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Nam</label>
+                </div>
+                <div>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Nữ</label>
+                </div>
+            </div>
+            
+
+              <div class="form-group">
+                  <label for="password">Mật Khẩu*: </label>
+                  <input type="password" id="password" name="Mật Khẩu" class="form-control" required>
+              </div>
+  
+              <button type="submit" class="btn btn-primary btn-block">Đăng Ký</button>
+          </form>
+      </div>
+  </div>
+
+    <div id="footer-placeholder"></div>
+
+</body>
+
+<script>
+    fetch('header.html')
+     .then(response => response.text())
+     .then(data => {
+       document.getElementById('header-placeholder').innerHTML = data;
+     });
+ 
+     fetch('footer.html')
+     .then(response => response.text())
+     .then(data => {
+       document.getElementById('footer-placeholder').innerHTML = data;
+     });
+
+     function dangKy() {
+    const hoTen = document.getElementById('hoTen').value;
+    const email = document.getElementById('email').value;
+    const matKhau = document.getElementById('matKhau').value;
+
+    // Bạn có thể xử lý thêm hoặc gửi dữ liệu lên server ở đây
+    alert(`Đăng ký thành công!\nHọ tên: ${hoTen}\nEmail: ${email}`);
+  }
+ </script>
+ 
+</html>

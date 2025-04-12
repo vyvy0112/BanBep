@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="chitietsanpham.css"> </head>
+    <style>
+        /* Стилі для сторінки деталей товару */
+.product-detail {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.product-image {
+    flex: 1;
+}
+
+.product-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-info {
+    flex: 1;
+}
+
+.product-info h1 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 2.2rem;
+    color: #333;
+}
+
+.product-info .product-detail-price {
+    color: #dc3545;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.product-info .product-actions button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.product-info .product-actions .add-to-cart-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.product-info .product-actions .add-to-cart-button:hover {
+    background-color: #0056b3;
+}
+
+.product-info .product-actions .buy-now-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.product-info .product-actions .buy-now-button:hover {
+    background-color: #1e7e34;
+}
+
+.product-specs {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.product-specs h2 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.product-specs ul {
+    list-style: none;
+    padding: 0;
+}
+
+.product-specs ul li {
+    padding: 8px 0;
+    border-bottom: 1px dotted #ccc;
+}
+
+.product-specs ul li:last-child {
+    border-bottom: none;
+}
+
+.product-reviews {
+    padding: 15px;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.product-reviews h2 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.product-reviews ul {
+    list-style: none;
+    padding: 0;
+}
+
+.product-reviews ul li {
+    padding: 8px 0;
+    border-bottom: 1px dotted #ccc;
+}
+
+.product-reviews ul li:last-child {
+    border-bottom: none;
+}
+
+.back-to-list-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #6c757d;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.back-to-list-button:hover {
+    background-color: #545b62;
+}
+</style>
+<body>
+    <div id="header-placeholder"></div>  
+
+    <div class="container">
+        <div class="product-detail">
+            <div class="product-image">
+                <img id="product-large-image" src="https://via.placeholder.com/400x300" alt="Hình ảnh chi tiết sản phẩm">
+            </div>
+            <div class="product-info">
+                <h1 id="product-detail-title">Tên Sản Phẩm</h1>
+                <p class="product-detail-price" id="product-detail-price">Giá: </p>
+                
+                <p class="product-detail-category" id="product-detail-category">Danh Mục: </p>
+
+                <p id="product-detail-description">Mô tả chi tiết về sản phẩm sẽ được hiển thị ở đây.</p>
+
+                <div class="product-actions">
+                    <button class="add-to-cart-button">Thêm vào giỏ hàng</button>
+                    <button class="buy-now-button">Mua ngay</button>
+                </div>
+            </div>
+        </div>
+        <a href="index.html" class="back-to-list-button">Quay lại danh sách sản phẩm</a>
+    </div>
+
+
+
+
+    <div id="footer-placeholder"></div>  
+
+
+
+    <script>
+        // Lấy tham số ID sản phẩm từ URL
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+    
+        const productId = getQueryParam('id');
+    
+        // Dữ liệu sản phẩm (thường sẽ lấy từ API hoặc cơ sở dữ liệu)
+        const productsData = {
+            "1": {
+                name: "Điện thoại iPhone 15 Pro Max",
+                price: "34,990,000 VND",
+                description: "Màn hình Super Retina XDR 6.7 inch, chip A17 Bionic, camera 48MP, bộ nhớ 256GB.",
+                imageLarge: "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/d/i/dien-thoai-samsung-galaxy-s25-ultra_2__4.png",
+                specs: {
+                    "Màn hình": "OLED 6.7 inch",
+                    "CPU": "A17 Bionic",
+                    "RAM": "8GB",
+                    "Bộ nhớ trong": "256GB",
+                    "Camera sau": "48MP + 12MP + 12MP",
+                    "Camera trước": "12MP"
+                },
+                reviews: ["Tuyệt vời!", "Camera chụp ảnh rất đẹp."],
+                category: "Điện thoại",
+                origin: "Mỹ (Thiết kế), Trung Quốc (Sản xuất)"
+            },
+            "2": {
+                name: "Laptop ASUS ROG",
+                price: "36,500,000 VND",
+                description: "Hiệu năng cao, chơi game mượt, màn hình 240Hz.",
+                imageLarge: "https://via.placeholder.com/400x300/007bff",
+                specs: {
+                    "Màn hình": "15.6 inch 240Hz",
+                    "CPU": "Intel Core i9",
+                    "RAM": "32GB",
+                    "Ổ cứng": "1TB SSD",
+                    "Card đồ họa": "NVIDIA GeForce RTX 4080"
+                },
+                reviews: ["Chiến game cực đã!", "Màn hình đẹp."],
+                category: "Laptop",
+                origin: "Đài Loan"
+            },
+            // Thêm dữ liệu cho các sản phẩm khác
+        };
+    
+        // Tìm thông tin sản phẩm dựa trên ID
+        const product = productsData[productId];
+    
+        if (product) {
+            document.getElementById('product-detail-title').textContent = product.name;
+            document.getElementById('product-detail-price').textContent = `Giá: ${product.price}`;
+            document.getElementById('product-detail-description').textContent = product.description;
+            document.getElementById('product-large-image').src = product.imageLarge;
+            document.getElementById('product-detail-category').textContent = `Danh Mục: ${product.category}`;
+            document.getElementById('product-detail-origin').textContent = `Xuất Xứ: ${product.origin}`;
+    
+            const specsList = document.getElementById('product-specs-list');
+            for (const key in product.specs) {
+                const li = document.createElement('li');
+                li.textContent = `${key}: ${product.specs[key]}`;
+                specsList.appendChild(li);
+            }
+    
+            const reviewsList = document.getElementById('product-reviews-list');
+            product.reviews.forEach(review => {
+                const li = document.createElement('li');
+                li.textContent = review;
+                reviewsList.appendChild(li);
+            });
+        } else {
+            document.querySelector('.product-detail').innerHTML = "<p>Không tìm thấy sản phẩm.</p>";
+            document.querySelector('.product-specs').style.display = "none";
+            document.querySelector('.product-reviews').style.display = "none";
+        }
+
+
+        fetch('header.html')
+     .then(response => response.text())
+     .then(data => {
+       document.getElementById('header-placeholder').innerHTML = data;
+     });
+ 
+     fetch('footer.html')
+     .then(response => response.text())
+     .then(data => {
+       document.getElementById('footer-placeholder').innerHTML = data;
+     });
+    </script>
+</body>
+</html>

@@ -260,6 +260,18 @@
       }
     });
   });
+
+
+  document.querySelectorAll('.delete-btn').forEach(function(button) {
+    button.addEventListener('click', function() {
+      // Xóa hàng chứa nút được bấm
+      const row = this.closest('tr');
+      if (row) {
+        row.remove();
+      }
+    });
+  });
+  
 </script>
 
 </html>
